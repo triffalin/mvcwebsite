@@ -2,6 +2,7 @@
 <link rel="stylesheet" href="/styles/forms.css">
 <link rel="stylesheet" href="/styles/posts.css">
 </head>
+
 <body>
   <%- include('includes/header.ejs') %>
   <main>
@@ -19,15 +20,16 @@
     <section>
       <h2>All Blog Posts</h2>
       <% if (!posts || posts.length === 0) { %>
-        <p>Could not find any posts. You need to first create some!</p>
+      <p>Could not find any posts. You need to first create some!</p>
       <% } else { %>
-        <ul id="posts-list">
-          <% for (const post of posts) { %>
-            <%- include('includes/post-item', { title: post.title, postId: post._id }) %>
-          <% } %>
-        </ul>
+      <ul id="posts-list">
+        <% for (const post of posts) { %>
+        <%- include('includes/post-item', { title: post.title, postId: post._id }) %>
+        <% } %>
+      </ul>
       <% } %>
     </section>
   </main>
 </body>
+
 </html>

@@ -1,7 +1,6 @@
 const mongodb = require('mongodb');
 
 const db = require('../data/database');
-const { post } = require('../routes/auth');
 
 const ObjectId = mongodb.ObjectId;
 
