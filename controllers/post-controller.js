@@ -7,10 +7,6 @@ function getHome(req, res) {
 }
 
 async function getAdmin(req, res) {
-	if (!res.locals.isAuth) {
-		return res.status(401).render('401');
-	}
-
 	const posts = await Post.fetchAll();
 
 	sessionErrorData = validationSession.getSessionErrorData(req, {
@@ -55,6 +51,7 @@ async function getSinglePost(req, res, next) {
 	try {
 		post = new Post(null, null, req.params.id);
 	} catch (error) {
+		// next(error);
 		return res.render('404');
 	}
 	await post.fetch();
